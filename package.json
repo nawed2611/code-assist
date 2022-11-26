@@ -12,8 +12,11 @@
     "@speechly/react-client": "^2.2.0",
     "@speechly/react-ui": "^2.7.2",
     "axios": "^1.2.0",
+    "framer-motion": "^7.6.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-rough-notation": "^1.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

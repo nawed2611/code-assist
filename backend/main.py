@@ -54,4 +54,5 @@ def documentation():
         final_answer = {"answer": response["choices"][0]["text"]}
         return final_answer, 200, {'Access-Control-Allow-Origin': '*'}
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
