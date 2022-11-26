@@ -47,13 +47,13 @@ function App() {
           {segment && segment.words.map(word => word.value).join(' ')}
         </p>
         <div className='py-4'>
-          {transcripts && <p>You Said - <em>{transcripts}</em></p>}
+          {transcripts && <p>You Said : <em>{transcripts}</em></p>}
         </div>
-        <div className='px-11 mx-11 py-4'>
+        <pre><code>
           {
-            res && <p>Answer - <em>{res}</em></p>
+            res && <p>Answer:<br></br><em>{res}</em></p>
           }
-        </div>
+        </code></pre>
       </div>
     </section>
   );

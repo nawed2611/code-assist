@@ -62,3 +62,19 @@ html {
   right: 27px;
   text-align: center;
 }
+
+pre,
+code {
+  font-family: monospace, monospace;
+  background-color: wheat;
+}
+
+pre {
+  overflow: auto;
+}
+
+pre>code {
+  display: block;
+  padding: 1rem;
+  word-wrap: normal;
+}
