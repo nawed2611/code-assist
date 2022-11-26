@@ -21,8 +21,9 @@ def code():
     if request.method == 'POST':
 
         data = request.json
+        data = data['transcripts']
         response = openai.Completion.create(
-        model="code-davinci-002",
+        model="text-davinci-002",
         prompt=data,
         temperature=0,
         max_tokens=256,

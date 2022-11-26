@@ -19,7 +19,7 @@ function App() {
         // Handle speech segment and make permanent changes to app state
         setTranscripts(plainString);
 
-        axios.post('http://localhost:5000/', { transcripts }, {
+        axios.post('http://localhost:5000/code', { transcripts }, {
           headers: {
             'Content-Type': 'application/json'
           }
