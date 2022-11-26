@@ -29,7 +29,7 @@ def code():
             model="text-davinci-002",
             prompt=data_processed,
             temperature=0,
-            max_tokens=1000 ,
+            max_tokens=2000 ,
             top_p=1,
             frequency_penalty=0.2,
             presence_penalty=0
@@ -39,24 +39,25 @@ def code():
         return final_response, 200, {'Access-Control-Allow-Origin': '*'}
     return "This is the final answer"
 
-# @cross_origin('*')
-# @app.route('/debug', methods=['GET', 'POST'])
-# def documentation():
+@cross_origin('*')
+@app.route('/debug', methods=['GET', 'POST'])
+def documentation():
 
-#     if request.method == 'POST':
+    if request.method == 'POST':
 
-#         data = request.json
-#         response = openai.Completion.create(
-#         model="code-davinci-002",
-#         prompt="Add documentation to the following code snippet: \n\n" + data,
-#         temperature=0,
-#         max_tokens=500,
-#         top_p=1.0,
-#         frequency_penalty=0.0,
-#         presence_penalty=0.0,
-#         )
-#         final_answer = {"answer": response["choices"][0]["text"]}
-#         return final_answer, 200, {'Access-Control-Allow-Origin': '*'}
+        data = request.json
+        data = data['transcripts']
+        response = openai.Completion.create(
+        model="code-davinci-002",
+        prompt="Add documentation to the following code snippet: \n\n" + data,
+        temperature=0,
+        max_tokens=500,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0,
+        )
+        final_answer = {"answer": response["choices"][0]["text"]}
+        return final_answer, 200, {'Access-Control-Allow-Origin': '*'}
 
 if __name__ == '__main__':
     app.run(debug=True)
