@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useSpeechContext } from '@speechly/react-client';
 import { PushToTalkButton, IntroPopup } from "@speechly/react-ui";
 import axios from 'axios';
-import Layout from './layout';
-
 
 function App() {
   const { segment, listening, attachMicrophone, start, stop } = useSpeechContext();
@@ -41,8 +39,10 @@ function App() {
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-3xl font-bold pt-11 mt-11">CodeAssist</h1>
         <IntroPopup />
-        <button className='p-4' onClick={attachMicrophone}>Initialize microphone</button>
+        <button className='p-4 my-float' onClick={attachMicrophone}>Initialize microphone</button>
+        <div className='float'>
         <PushToTalkButton />
+        </div>
         <p className='py-4'>
           {segment && segment.words.map(word => word.value).join(' ')}
         </p>

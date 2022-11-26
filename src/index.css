@@ -15,6 +15,7 @@ html {
 .bg {
   background: linear-gradient(#ffffff, #bae390);
 }
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -33,6 +34,7 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #bae390;
 }
+
 .glass {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -41,3 +43,22 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 70px;
+  bottom: 70px;
+  right: 100px;
+  border-radius: 50px;
+  text-align: center;
+}
+
+
+.my-float {
+  position: fixed;
+  height: 160px;
+  bottom: 120px;
+  right: 27px;
+  text-align: center;
+}
