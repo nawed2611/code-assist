@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useSpeechContext } from '@speechly/react-client';
-import {
-  PushToTalkButton,
-  IntroPopup
-} from "@speechly/react-ui";
-
+import { PushToTalkButton, IntroPopup } from "@speechly/react-ui";
 import axios from 'axios';
 
 function App() {
   const { segment, listening, attachMicrophone, start, stop } = useSpeechContext();
   const [transcripts, setTranscripts] = useState("");
+  const [res, setRes] = useState("");
 
   useEffect(() => {
     if (segment) {
@@ -26,6 +23,7 @@ function App() {
         })
           .then(res => {
             console.log(res.data);
+            setRes(res.data.answer);
           }
           )
           .catch(err => {
@@ -47,6 +45,9 @@ function App() {
       <div>
         {transcripts && <p>You Said - <em>{transcripts}</em></p>}
       </div>
+      {
+        res && <p>Answer - <em>{res}</em></p>
+      }
     </div>
   );
 }
