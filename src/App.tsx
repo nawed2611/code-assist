@@ -56,7 +56,7 @@ function App() {
   return (
     <section className='min-h-screen'>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-7xl font-bold mt-12">CodeAssist</h1>
+        <h1 className="text-purple-700 text-7xl font-bold mt-12">Code<span className='text-gray-700'>Assist</span></h1>
         <IntroPopup />
         <div className='float'>
           <PushToTalkButton />
@@ -66,20 +66,19 @@ function App() {
         </p>
         {
           res ?
-            <div className='w-[60vw] min-h-[60vh] overflow-y-scroll'>
+            <div className='w-[60vw] min-h-[60vh]'>
               <Editor
                 value={res}
                 onValueChange={res => setRes(res)}
                 highlight={code => highlight(code, languages.js)}
                 padding={16}
-
-                className="w-full h-full"
+                className="w-full overflow-y-scroll bg-slate-100"
                 style={{
                   fontFamily: '"Fira code", "Fira Mono", monospace',
-                  fontSize: 24,
+                  fontSize: 15,
                 }}
               />
-              <button className='bg-blue-500 text-white p-2 rounded-lg' onClick={handleDocs}>Add Docs</button>
+              <button className='bg-purple-400 text-white p-2 m-3 mb-4 rounded-lg' onClick={handleDocs}>Explain code &#8593;</button>
             </div>
             : <div className='w-[60vw] h-[60vh]'>
               <Editor
@@ -87,10 +86,10 @@ function App() {
                 onValueChange={res => setRes(res)}
                 highlight={code => highlight(code, languages.js)}
                 padding={16}
-                className="w-full h-full"
+                className="w-full overflow-y-scroll bg-slate-100"
                 style={{
                   fontFamily: '"Fira code", "Fira Mono", monospace',
-                  fontSize: 24,
+                  fontSize: 15,
                 }}
               />
             </div>

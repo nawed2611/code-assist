@@ -27,7 +27,7 @@ def code():
         print("Input by the user is" + data_processed)
         response = openai.Completion.create(
             model="text-davinci-002",
-            prompt=data_processed,
+            prompt="The user is a software developer and wants answers only in code format. Please adhere to his queries: \n\n" + data_processed,
             temperature=0,
             max_tokens=2000 ,
             top_p=1,
@@ -48,10 +48,10 @@ def documentation():
         data = request.json
         data = data['transcripts']
         response = openai.Completion.create(
-        model="code-davinci-002",
-        prompt="Add documentation to the following code snippet: \n\n" + data,
+        model="text-davinci-002",
+        prompt="The user is a novice and does not know anything. Please explain elaborately the following code snippet: \n\n" + data,
         temperature=0,
-        max_tokens=500,
+        max_tokens=700,
         top_p=1.0,
         frequency_penalty=0.0,
         presence_penalty=0.0,
